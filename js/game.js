@@ -31,7 +31,10 @@ function
 
 			this.engine = new Ash.Engine();			
 			this.creator = new EntityCreator( this.engine, assetLoader );	
-			this.keyPoll = new KeyPoll();			
+			this.keyPoll = new KeyPoll();		
+
+			this.engine.addSystem( new SpriteAnimationSystem(this.creator), 1 );
+			this.engine.addSystem( new RenderSystem(stage), 3 );	
 		},
 
 		start: function()
